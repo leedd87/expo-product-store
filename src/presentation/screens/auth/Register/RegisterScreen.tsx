@@ -6,11 +6,11 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams } from '../../../navigation/MainStackNavigator';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
-export type NavigationType = NavigationProp<RootStackParams>;
+interface RegisterScreenProps
+  extends StackScreenProps<RootStackParams, 'Register'> {}
 
-export const RegisterScreen = () => {
+export const RegisterScreen = ({ navigation }: RegisterScreenProps) => {
   const { height } = useWindowDimensions();
-  const navigation = useNavigation<NavigationType>();
 
   return (
     <Layout style={{ flex: 1 }}>

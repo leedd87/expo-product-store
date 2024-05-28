@@ -24,10 +24,10 @@ export const ProductsApp = () => {
             dark: colorScheme === 'dark',
             colors: {
               primary: theme['color-primary-500'],
-              background: theme['color-primary-500'],
-              card: theme['color-primary-500'],
-              text: theme['color-primary-500'],
-              border: theme['color-primary-500'],
+              background: backgroundColor,
+              card: theme['color-basic-100'],
+              text: theme['text-basic-color'],
+              border: theme['color-basic-800'],
               notification: theme['color-primary-500'],
             },
           }}

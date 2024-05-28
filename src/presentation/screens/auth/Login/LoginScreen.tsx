@@ -5,12 +5,14 @@ import { CustomIcon } from '../../../components/ui/CustomIcon';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams } from '../../../navigation/MainStackNavigator';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { API_URL, STAGE } from '@env';
 
-export type NavigationType = NavigationProp<RootStackParams>;
+interface LoginScreenProps extends StackScreenProps<RootStackParams, 'Login'> {}
 
-export const LoginScreen = () => {
+export const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const { height } = useWindowDimensions();
-  const navigation = useNavigation<NavigationType>();
+
+  console.log({ apiUrl: API_URL, stage: STAGE });
 
   return (
     <Layout style={{ flex: 1 }}>
