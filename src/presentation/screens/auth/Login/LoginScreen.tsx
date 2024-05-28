@@ -2,9 +2,15 @@ import React from 'react';
 import { Button, Icon, Input, Layout, Text } from '@ui-kitten/components';
 import { ScrollView, useWindowDimensions } from 'react-native';
 import { CustomIcon } from '../../../components/ui/CustomIcon';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParams } from '../../../navigation/MainStackNavigator';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+
+export type NavigationType = NavigationProp<RootStackParams>;
 
 export const LoginScreen = () => {
   const { height } = useWindowDimensions();
+  const navigation = useNavigation<NavigationType>();
 
   return (
     <Layout style={{ flex: 1 }}>
@@ -48,7 +54,11 @@ export const LoginScreen = () => {
           }}
         >
           <Text>No tiene cuenta?</Text>
-          <Text status="primary" category="s1" onPress={() => {}}>
+          <Text
+            status="primary"
+            category="s1"
+            onPress={() => navigation.navigate('Register')}
+          >
             {' '}
             Crea una!
           </Text>
