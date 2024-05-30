@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { MainStackNavigator } from './presentation/navigation/MainStackNavigator';
 import { useColorScheme } from 'react-native';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { AuthProvider } from './presentation/providers/AuthProvider';
 
 export const ProductsApp = () => {
   const colorScheme = useColorScheme();
@@ -32,7 +33,9 @@ export const ProductsApp = () => {
             },
           }}
         >
-          <MainStackNavigator />
+          <AuthProvider>
+            <MainStackNavigator />
+          </AuthProvider>
         </NavigationContainer>
       </ApplicationProvider>
     </>
