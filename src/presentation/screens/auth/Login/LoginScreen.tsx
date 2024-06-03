@@ -29,7 +29,10 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
 
     const wasSuccessful = await login(form.email, form.password);
     setIsPosting(false);
-    if (wasSuccessful) return;
+    if (wasSuccessful) {
+      //dispatch de la api de los productos y despues dispach del state para guardarlo y poder usarlo
+      return;
+    }
 
     Alert.alert('Error', 'Usuario o contrasenia incorrectos');
   };
