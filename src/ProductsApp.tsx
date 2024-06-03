@@ -7,6 +7,15 @@ import { MainStackNavigator } from './presentation/navigation/MainStackNavigator
 import { useColorScheme } from 'react-native';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { AuthProvider } from './presentation/providers/AuthProvider';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 export const ProductsApp = () => {
   const colorScheme = useColorScheme();
@@ -17,7 +26,7 @@ export const ProductsApp = () => {
       : theme['color-basic-100'];
 
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
         <NavigationContainer
@@ -38,6 +47,6 @@ export const ProductsApp = () => {
           </AuthProvider>
         </NavigationContainer>
       </ApplicationProvider>
-    </>
+    </QueryClientProvider>
   );
 };
