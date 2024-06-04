@@ -7,12 +7,14 @@ import { HomeScreen } from '../screens/home/HomeScreen';
 import { LoadingScreen } from '../screens/loading/LoadingScreen';
 import { RegisterScreen } from '../screens/auth/Register/RegisterScreen';
 import { LoginScreen } from '../screens/auth/Login/LoginScreen';
+import { ProductScreen } from '../screens/product/ProductScreen';
 
 export type RootStackParams = {
   Login: undefined;
   Register: undefined;
   Loading: undefined;
   Home: undefined;
+  Product: {};
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -52,6 +54,11 @@ export const MainStackNavigator = () => {
         options={{ cardStyleInterpolator: fadeAnimation }}
         name="Register"
         component={RegisterScreen}
+      />
+      <Stack.Screen
+        //options={{ cardStyleInterpolator: fadeAnimation }}
+        name="Product"
+        component={ProductScreen}
       />
     </Stack.Navigator>
   );
