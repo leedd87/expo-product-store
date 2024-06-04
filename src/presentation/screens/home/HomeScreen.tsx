@@ -4,6 +4,8 @@ import { useAuthStore } from '../../store/auth/useAuthStore';
 import { getProductsByPage } from '../../../actions/products/get-products-by-page';
 import { useQuery } from '@tanstack/react-query';
 import { MainLayout } from '../../layouts/MainLayout';
+import { FullScreenLoader } from '../../components/ui/FullScreenLoader';
+import { ProductList } from '../../components/products/ProductList';
 
 export const HomeScreen = () => {
   const { logOut } = useAuthStore();
@@ -19,7 +21,7 @@ export const HomeScreen = () => {
       title="TesloShop - Products"
       subTitle="Aplicacion administrativa"
     >
-      <Text>Hola App</Text>
+      {isLoading ? <FullScreenLoader /> : <ProductList products={products} />}
     </MainLayout>
   );
 };
