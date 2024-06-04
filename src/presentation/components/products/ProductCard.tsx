@@ -16,7 +16,7 @@ export const ProductCard = ({ product }: Props) => {
   return (
     <Card
       style={{ flex: 1, backgroundColor: '#F9F9F9', margin: 3 }}
-      onPress={() => navigation.navigate('Product', {})}
+      onPress={() => navigation.navigate('Product', { productId: product.id })}
     >
       {product.images.length === 0 ? (
         <Image

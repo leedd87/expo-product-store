@@ -14,7 +14,7 @@ export type RootStackParams = {
   Register: undefined;
   Loading: undefined;
   Home: undefined;
-  Product: {};
+  Product: { productId: string };
 };
 
 const Stack = createStackNavigator<RootStackParams>();
