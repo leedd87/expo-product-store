@@ -32,10 +32,15 @@ export const HomeScreen = () => {
       {isLoading ? (
         <FullScreenLoader />
       ) : (
-        <ProductList
-          fetchNextPage={fetchNextPage}
-          products={data?.pages.flat() ?? []}
-        />
+        <>
+          <Button onPress={logOut} style={{ marginHorizontal: 30 }}>
+            LOG OUT
+          </Button>
+          <ProductList
+            fetchNextPage={fetchNextPage}
+            products={data?.pages.flat() ?? []}
+          />
+        </>
       )}
     </MainLayout>
   );
