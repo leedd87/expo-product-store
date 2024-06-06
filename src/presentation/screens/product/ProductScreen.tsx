@@ -1,28 +1,23 @@
 import React, { useRef } from 'react';
-import { MainLayout } from '../../layouts/MainLayout';
+import { Alert, ScrollView } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
 import {
   Button,
   ButtonGroup,
   Input,
   Layout,
-  Text,
   useTheme,
 } from '@ui-kitten/components';
-import {
-  useQuery,
-  useMutation,
-  QueryClient,
-  useQueryClient,
-} from '@tanstack/react-query';
+import { Formik } from 'formik';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+
+import { MainLayout } from '../../layouts/MainLayout';
 import { getProductById } from '../../../actions/products/get-product-by-id';
-import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParams } from '../../navigation/MainStackNavigator';
-import { Alert, FlatList, Image, ScrollView } from 'react-native';
-import { FadeInImage } from '../../components/ui/FadeInImage';
 import { Gender, Product, Size } from '../../../domain/entities/product';
 import { CustomIcon } from '../../components/ui/CustomIcon';
-import { Formik } from 'formik';
 import { updateCreateProduct } from '../../../actions/products/update-create-product';
+import { ProductImages } from '../../components/products/ProductImages';
 
 const sizes: Size[] = [Size.Xs, Size.S, Size.M, Size.L, Size.Xl, Size.Xxl];
 
@@ -72,25 +67,7 @@ export const ProductScreen = ({ route }: Props) => {
                 alignItems: 'center',
               }}
             >
-              {values.images.length === 0 ? (
-                <Image
-                  source={require('../../../assets/no-product-image.png')}
-                  style={{ width: 300, height: 300 }}
-                />
-              ) : (
-                <FlatList
-                  data={values.images}
-                  horizontal
-                  keyExtractor={(item) => item}
-                  showsHorizontalScrollIndicator={false}
-                  renderItem={({ item }) => (
-                    <FadeInImage
-                      uri={item}
-                      style={{ width: 300, height: 300, marginHorizontal: 7 }}
-                    />
-                  )}
-                />
-              )}
+              <ProductImages images={values.images} />
             </Layout>
             {/* formulario */}
 
