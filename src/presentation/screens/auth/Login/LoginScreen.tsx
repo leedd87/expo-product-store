@@ -65,7 +65,7 @@ export const LoginScreen = ({ navigation }: LoginScreenProps) => {
           />
         </Layout>
 
-        <Text>{JSON.stringify(form, null, 2)}</Text>
+        {/* <Text>{JSON.stringify(form, null, 2)}</Text> */}
 
         <Layout style={{ height: 10 }} />
 

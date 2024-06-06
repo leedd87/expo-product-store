@@ -10,7 +10,7 @@ export const updateCreateProduct = (product: Partial<Product>) => {
     return updateProduct(product);
   }
 
-  throw new Error('Creacion no esta implementado');
+  return createProduct(product);
 };
 
 const updateProduct = async (product: Partial<Product>) => {
@@ -39,12 +39,12 @@ const prepareImages = (images: string[]) => {
   return images.map((image) => image.split('/').pop());
 };
 
-const createProduct = async (product: Partial<Product>): Promise<Product> => {
+const createProduct = async (product: Partial<Product>) => {
   const { id, images = [], ...rest } = product;
   try {
     const checkedImages = prepareImages(images);
     console.log(checkedImages);
-
+    console.log('funciono el create product');
     const { data } = await tesloApi.post(`/products`, {
       images: checkedImages,
       ...rest,
